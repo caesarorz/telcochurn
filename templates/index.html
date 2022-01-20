@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+
+
+
+
+    <div class="mb-4 bg-light rounded-3">
+        <div class="container py-5">
+
+            <h3>Telecommuication's customer Churn Analisys and prediction</h3>
+
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Prediction</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
+              </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <p>Fill out the form with the information required to predict if your customer leave or not</p>
+
+                <form class="row g-3 needs-validation" method="post" action="" novalidate>
+                  <div class="col-md-3">
+                      <label for="validationCustom04" class="form-label">Gender</label>
+                      <select name="gender" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option selected disabled value="">Choose Female/Male</option>
+                        <option>Female</option>
+                        <option>Male</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <label for="validationCustom04" class="form-label">Senior Citizen</label>
+                      <select name="senior" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option selected disabled value="">Choose Yes/No</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <label for="validationCustom04" class="form-label">Partner</label>
+                      <select name="partner" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option selected disabled value="">Choose Yes/No</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <label for="validationCustom04" class="form-label">Phone Service</label>
+                      <select name="phone" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option selected disabled value="">Choose Yes/No</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <label for="validationCustom04" class="form-label">Multiple Lines</label>
+                      <select name="multilines" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option selected disabled value="">Choose your option</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>No phone service</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <label for="validationCustom04" class="form-label">Internet Service</label>
+                      <select name="internetservice" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option selected disabled value="">Choose your option</option>
+                        <option>DSL</option>
+                        <option>Fiber optic</option>
+                        <option>No</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <label for="validationCustom04" class="form-label">Online Security</label>
+                      <select name="security" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option selected disabled value="">Choose your option</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>No internet service</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <label for="validationCustom04" class="form-label">Online Backup</label>
+                      <select name="backup" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option selected disabled value="">Choose your option</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>No internet service</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <label for="validationCustom04" class="form-label">Device Protection</label>
+                      <select name="protection" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option selected disabled value="">Choose your option</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>No internet service</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <label for="validationCustom04" class="form-label">Tech Support</label>
+                      <select name="support" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option selected disabled value="">Choose your option</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>No internet service</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <label for="validationCustom04" class="form-label">Streaming TV</label>
+                      <select name="streamingtv" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option selected disabled value="">Choose your option</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>No internet service</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <label for="validationCustom04" class="form-label">Streaming Movies</label>
+                      <select name="streamingmovies" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option selected disabled value="">Choose your option</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>No internet service</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                      <label for="validationCustom04" class="form-label">Contract</label>
+                      <select name="contract" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option selected disabled value="">Choose your option</option>
+                        <option>Month-to-month</option>
+                        <option>Two year</option>
+                        <option>One year</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                      <label for="validationCustom04" class="form-label">Paperless Billing</label>
+                      <select name="billing" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option selected disabled value="">Choose your option</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                      <label for="validationCustom04" class="form-label">Payment Method</label>
+                      <select name="payment" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option selected disabled value="">Choose your option</option>
+                        <option>Electronic check</option>
+                        <option>Mailed check</option>
+                        <option>Bank transfer (automatic)</option>
+                        <option value="">Credit card (automatic)</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                  </div>
+  
+                  <div class="col-md-3">
+                    <label for="customRange3" class="form-label">Tenure</label>
+                    <input name="tenure" type="range" class="form-range" min="18" max="118" step="1" value="10" id="customRange3">
+                    <p>Value: <span id="customRange3Value"></span></p>
+                    <div class="invalid-feedback">
+                      Please select a valid state.
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+
+                      <label for="customRange4" class="form-label">Monthly Charges</label>
+                      <input name="montlycharges" type="range" class="form-range" min="18" max="118" step="1" value="10" id="customRange4">
+                      <p>Value: <span id="customRange4Value"></span></p>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+
+
+                  </div>
+
+                  <div class="col-md-6">
+                      <label for="customRange5" class="form-label">Total Charges</label>
+                      <input name="totalcharges" type="range" class="form-range" min="18" max="8684" step="1" value="10" id="customRange5">
+                      <p>Value: <span id="customRange5Value"></span></p>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                  </div>
+  
+  
+  
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                      <label class="form-check-label" for="invalidCheck">
+                        Agree to terms and conditions
+                      </label>
+                      <div class="invalid-feedback">
+                        You must agree before submitting.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Submit form</button>
+                  </div>
+                </form>
+
+
+              </div>
+              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">.2..</div>
+              <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">.3..</div>
+            </div>
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Custom validatin script for form -->
+    <script src="static/script.js"></script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
