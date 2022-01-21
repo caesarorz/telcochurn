@@ -76,4 +76,4 @@ if __name__ == '__main__':
     clf2 = CatBoostClassifier()
     clf2.load_model(fname="catboost.model", format="cbm")
 
-    app.run(debug=True)
+    app.run()
