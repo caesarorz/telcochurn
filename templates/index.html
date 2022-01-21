@@ -18,8 +18,14 @@
 
     <div class="mb-4 bg-light rounded-3">
         <div class="container py-5">
+          {% if prediction %}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Churn: <strong>{{prediction}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% endif %}
 
-            <h3>Telecommuication's customer Churn Analisys and prediction</h3>
+            <h3>Telecommunication's customer Churn Analysis and prediction</h3>
 
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -32,24 +38,22 @@
               <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                 <p>Fill out the form with the information required to predict if your customer leave or not</p>
 
-                <form class="row g-3 needs-validation" method="post" action="" novalidate>
+                <form class="row g-3 needs-validation" method="post" action="" novalidate id="churn_form">
+                  <div class="col-md-3">
+                    <label for="validationCustom04" class="form-label">Senior Citizen</label>
+                    <select name="SeniorCitizen" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                      <option value="SeniorCitizen">Yes</option>
+                      <option value="SeniorCitizen_No">No</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please select a valid state.
+                    </div>
+                </div>
                   <div class="col-md-3">
                       <label for="validationCustom04" class="form-label">Gender</label>
                       <select name="gender" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
-                        <option selected disabled value="">Choose Female/Male</option>
-                        <option>Female</option>
-                        <option>Male</option>
-                      </select>
-                      <div class="invalid-feedback">
-                        Please select a valid state.
-                      </div>
-                  </div>
-                  <div class="col-md-3">
-                      <label for="validationCustom04" class="form-label">Senior Citizen</label>
-                      <select name="senior" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
-                        <option selected disabled value="">Choose Yes/No</option>
-                        <option>Yes</option>
-                        <option>No</option>
+                        <option value="gender_Female">Female</option>
+                        <option value="gender_Male">Male</option>
                       </select>
                       <div class="invalid-feedback">
                         Please select a valid state.
@@ -57,10 +61,9 @@
                   </div>
                   <div class="col-md-3">
                       <label for="validationCustom04" class="form-label">Partner</label>
-                      <select name="partner" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
-                        <option selected disabled value="">Choose Yes/No</option>
-                        <option>Yes</option>
-                        <option>No</option>
+                      <select name="Partner" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option value="Partner_Yes">Yes</option>
+                        <option value="Partner_No">No</option>
                       </select>
                       <div class="invalid-feedback">
                         Please select a valid state.
@@ -68,10 +71,9 @@
                   </div>
                   <div class="col-md-3">
                       <label for="validationCustom04" class="form-label">Phone Service</label>
-                      <select name="phone" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
-                        <option selected disabled value="">Choose Yes/No</option>
-                        <option>Yes</option>
-                        <option>No</option>
+                      <select name="PhoneService" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option value="PhoneService_Yes">Yes</option>
+                        <option value="PhoneService_No">No</option>
                       </select>
                       <div class="invalid-feedback">
                         Please select a valid state.
@@ -79,11 +81,10 @@
                   </div>
                   <div class="col-md-3">
                       <label for="validationCustom04" class="form-label">Multiple Lines</label>
-                      <select name="multilines" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
-                        <option selected disabled value="">Choose your option</option>
-                        <option>Yes</option>
-                        <option>No</option>
-                        <option>No phone service</option>
+                      <select name="MultipleLines" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option value="MultipleLines_Yes">Yes</option>
+                        <option value="MultipleLines_No">No</option>
+                        <option value="MultipleLines_No phone service">No phone service</option>
                       </select>
                       <div class="invalid-feedback">
                         Please select a valid state.
@@ -92,10 +93,9 @@
                   <div class="col-md-3">
                       <label for="validationCustom04" class="form-label">Internet Service</label>
                       <select name="internetservice" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
-                        <option selected disabled value="">Choose your option</option>
-                        <option>DSL</option>
-                        <option>Fiber optic</option>
-                        <option>No</option>
+                        <option value="InternetService_DSL">DSL</option>
+                        <option value="InternetService_Fiber optic">Fiber optic</option>
+                        <option value="InternetService_No">No</option>
                       </select>
                       <div class="invalid-feedback">
                         Please select a valid state.
@@ -103,11 +103,10 @@
                   </div>
                   <div class="col-md-3">
                       <label for="validationCustom04" class="form-label">Online Security</label>
-                      <select name="security" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
-                        <option selected disabled value="">Choose your option</option>
-                        <option>Yes</option>
-                        <option>No</option>
-                        <option>No internet service</option>
+                      <select name="OnlineSecurity" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option value="OnlineSecurity_Yes">Yes</option>
+                        <option value="OnlineSecurity_No">No</option>
+                        <option value="OnlineBackup_No internet service">No internet service</option>
                       </select>
                       <div class="invalid-feedback">
                         Please select a valid state.
@@ -115,11 +114,10 @@
                   </div>
                   <div class="col-md-3">
                       <label for="validationCustom04" class="form-label">Online Backup</label>
-                      <select name="backup" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
-                        <option selected disabled value="">Choose your option</option>
-                        <option>Yes</option>
-                        <option>No</option>
-                        <option>No internet service</option>
+                      <select name="OnlineBackup" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option value="OnlineBackup_Yes">Yes</option>
+                        <option value="OnlineBackup_No">No</option>
+                        <option value="OnlineBackup_No internet service">No internet service</option>
                       </select>
                       <div class="invalid-feedback">
                         Please select a valid state.
@@ -127,11 +125,10 @@
                   </div>
                   <div class="col-md-3">
                       <label for="validationCustom04" class="form-label">Device Protection</label>
-                      <select name="protection" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
-                        <option selected disabled value="">Choose your option</option>
-                        <option>Yes</option>
-                        <option>No</option>
-                        <option>No internet service</option>
+                      <select name="DeviceProtection" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option value="DeviceProtection_Yes">Yes</option>
+                        <option value="DeviceProtection_No">No</option>
+                        <option value="DeviceProtection_No internet service">No internet service</option>
                       </select>
                       <div class="invalid-feedback">
                         Please select a valid state.
@@ -139,11 +136,10 @@
                   </div>
                   <div class="col-md-3">
                       <label for="validationCustom04" class="form-label">Tech Support</label>
-                      <select name="support" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
-                        <option selected disabled value="">Choose your option</option>
-                        <option>Yes</option>
-                        <option>No</option>
-                        <option>No internet service</option>
+                      <select name="TechSupport" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option value="TechSupport_Yes">Yes</option>
+                        <option value="TechSupport_No">No</option>
+                        <option value="TechSupport_No internet service">No internet service</option>
                       </select>
                       <div class="invalid-feedback">
                         Please select a valid state.
@@ -152,10 +148,9 @@
                   <div class="col-md-3">
                       <label for="validationCustom04" class="form-label">Streaming TV</label>
                       <select name="streamingtv" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
-                        <option selected disabled value="">Choose your option</option>
-                        <option>Yes</option>
-                        <option>No</option>
-                        <option>No internet service</option>
+                        <option value="StreamingTV_Yes">Yes</option>
+                        <option value="StreamingTV_No">No</option>
+                        <option value="StreamingTV_No internet service">No internet service</option>
                       </select>
                       <div class="invalid-feedback">
                         Please select a valid state.
@@ -164,46 +159,52 @@
                   <div class="col-md-3">
                       <label for="validationCustom04" class="form-label">Streaming Movies</label>
                       <select name="streamingmovies" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
-                        <option selected disabled value="">Choose your option</option>
-                        <option>Yes</option>
-                        <option>No</option>
-                        <option>No internet service</option>
+                        <option value="StreamingMovies_Yes">Yes</option>
+                        <option value="StreamingMovies_No">No</option>
+                        <option value="StreamingMovies_No internet service">No internet service</option>
                       </select>
                       <div class="invalid-feedback">
                         Please select a valid state.
                       </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                       <label for="validationCustom04" class="form-label">Contract</label>
-                      <select name="contract" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
-                        <option selected disabled value="">Choose your option</option>
-                        <option>Month-to-month</option>
-                        <option>Two year</option>
-                        <option>One year</option>
+                      <select name="Contract" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option value='Contract_Month'>Month-to-month</option>
+                        <option value='Contract_Two year'>Two year</option>
+                        <option value='Contract_One year'>One year</option>
                       </select>
                       <div class="invalid-feedback">
                         Please select a valid state.
                       </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
+                    <label for="validationCustom04" class="form-label">Dependents</label>
+                    <select name="Dependents_Yes" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                      <option value='Dependents_Yes'>Yes</option>
+                      <option value='Dependents_No'>No</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please select a valid state.
+                    </div>
+                </div>
+                  <div class="col-md-3">
                       <label for="validationCustom04" class="form-label">Paperless Billing</label>
-                      <select name="billing" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
-                        <option selected disabled value="">Choose your option</option>
-                        <option>Yes</option>
-                        <option>No</option>
+                      <select name="PaperlessBilling" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option value="PaperlessBilling_Yes">Yes</option>
+                        <option value="PaperlessBilling_No">No</option>
                       </select>
                       <div class="invalid-feedback">
                         Please select a valid state.
                       </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                       <label for="validationCustom04" class="form-label">Payment Method</label>
-                      <select name="payment" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
-                        <option selected disabled value="">Choose your option</option>
-                        <option>Electronic check</option>
-                        <option>Mailed check</option>
-                        <option>Bank transfer (automatic)</option>
-                        <option value="">Credit card (automatic)</option>
+                      <select name="PaymentMethod" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
+                        <option value="PaymentMethod_Electronic check">Electronic check</option>
+                        <option value="PaymentMethod_Mailed check">Mailed check</option>
+                        <option value="PaymentMethod_Bank transfer (automatic)">Bank transfer (automatic)</option>
+                        <option value="PaymentMethod_Credit card (automatic)">Credit card (automatic)</option>
                       </select>
                       <div class="invalid-feedback">
                         Please select a valid state.
@@ -212,27 +213,23 @@
   
                   <div class="col-md-3">
                     <label for="customRange3" class="form-label">Tenure</label>
-                    <input name="tenure" type="range" class="form-range" min="18" max="118" step="1" value="10" id="customRange3">
+                    <input name="tenure" type="range" class="form-range" min="0" max="72" step="1" value="10" id="customRange3">
                     <p>Value: <span id="customRange3Value"></span></p>
                     <div class="invalid-feedback">
                       Please select a valid state.
                     </div>
                   </div>
                   <div class="col-md-3">
-
                       <label for="customRange4" class="form-label">Monthly Charges</label>
-                      <input name="montlycharges" type="range" class="form-range" min="18" max="118" step="1" value="10" id="customRange4">
+                      <input name="MonthlyCharges" type="range" class="form-range" min="18" max="118" step="1" value="10" id="customRange4">
                       <p>Value: <span id="customRange4Value"></span></p>
                       <div class="invalid-feedback">
                         Please select a valid state.
                       </div>
-
-
                   </div>
-
                   <div class="col-md-6">
                       <label for="customRange5" class="form-label">Total Charges</label>
-                      <input name="totalcharges" type="range" class="form-range" min="18" max="8684" step="1" value="10" id="customRange5">
+                      <input name="TotalCharges" type="range" class="form-range" min="18" max="8684" step="1" value="10" id="customRange5">
                       <p>Value: <span id="customRange5Value"></span></p>
                       <div class="invalid-feedback">
                         Please select a valid state.
@@ -253,7 +250,7 @@
                     </div>
                   </div>
                   <div class="col-12">
-                    <button class="btn btn-primary" type="submit">Submit form</button>
+                    <button id="submit-prediction" class="btn btn-primary" type="submit">Submit form</button>
                   </div>
                 </form>
 

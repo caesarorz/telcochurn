@@ -49,6 +49,15 @@
     output5.innerHTML = this.value;
   }
 
+  document.getElementById('submit-prediction').addEventListener('click', function () {
+    var formEl = document.forms.churn_form;
+    var formData = new FormData(formEl);
+    console.log(formData)
+    // var name = formData.get('name');
+  })
+
+
+
  
 
 
