@@ -1,5 +1,4 @@
-from flask import Flask, render_template, request, jsonify
-import joblib as job
+from flask import Flask, render_template, request
 import pandas as pd
 from catboost import CatBoostClassifier
 
@@ -72,7 +71,6 @@ def index():
 
 if __name__ == '__main__':
 
-    cols = job.load('cat_boost_names.pkl')
     clf2 = CatBoostClassifier()
     clf2.load_model(fname="catboost.model", format="cbm")
 
