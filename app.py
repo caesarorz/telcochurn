@@ -59,6 +59,9 @@ def process_data(data):
 
 @app.route('/', methods=['get', 'post'])
 def index():
+    clf2 = CatBoostClassifier()
+    clf2.load_model(fname="catboost.model", format="cbm")
+    
     prediction = []
     if request.method == 'POST':
         prediction = process_data(request.form)
@@ -70,8 +73,4 @@ def index():
 
 
 if __name__ == '__main__':
-
-    clf2 = CatBoostClassifier()
-    clf2.load_model(fname="catboost.model", format="cbm")
-
     app.run()
