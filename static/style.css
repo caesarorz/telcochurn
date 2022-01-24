@@ -18,9 +18,3 @@
 .card {
     border: 1px solid rgb(255, 255, 255);
 }
-
-pre {
-    background-color: rgba(212, 195, 195, 0.938);
-    padding: 5px 0 5px 0;
-    max-width: 400px;
-}

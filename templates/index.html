@@ -120,8 +120,8 @@
                     </div>
                   </div>
                 </div>
-
               </div>
+
               <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 
                 <p>Fill out the form with the information required to predict if your customer leaves or not</p>
@@ -331,7 +331,71 @@
 
 
               </div>
+
               <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="card mb-3" style="margin-top: 30px;">
+                  <div class="row g-0">
+                    <div class="col-md-8">
+                      
+
+                      <p class="card-text">
+                        <code><pre id=""> 
+                        # best params for results above
+
+                        params = {'border_count': 5,
+                         'depth': 1,
+                         'iterations': 250,
+                         'l2_leaf_reg': 1,
+                         'learning_rate': 0.2,
+                         'thread_count': 4,
+                         'verbose': False}
+                        
+                        cat_model = CatBoostClassifier(**params)
+                        
+                        cat_model.fit(X_train, y_train)
+
+                        y_pred = cat_model.predict(X_test)
+                      </pre></code></p>
+
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><code><pre>
+
+                        </pre></code></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-md-8">
+                      <img src="https://github.com/caesarorz/telcochurn/blob/main/data/images/model_features7.png?raw=true" class="card-img-top" alt="...">
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><code><pre>
+
+                          feature_imp = pd.DataFrame(
+                              data=cat_model.get_feature_importance(), 
+                              index=cat_model.feature_names_, 
+                              columns=['Features Impr']).sort_values(by='Features Impr', ascending=False)
+                              
+                          plt.figure(figsize=(8,4))
+                          sns.barplot(data=feature_imp, x=feature_imp.index, y='Features Impr');
+                          plt.xticks(rotation=90);
+
+                        </pre></code></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
 
               </div>
             </div>
