@@ -1,3 +1,4 @@
+from distutils.log import debug
 from flask import Flask, render_template, request
 import pandas as pd
 from catboost import CatBoostClassifier
@@ -73,4 +74,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
