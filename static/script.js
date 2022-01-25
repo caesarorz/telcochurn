@@ -77,7 +77,7 @@ const rendertablePrediction = (data) => {
 
 const renderResult = (data) => {
   if (data.prediction === 'No' || data.prediction === 'Yes'){
-    document.getElementById("prediction-result").innerHTML = `Model Result: ${data.prediction}`
+    document.getElementById("prediction-result").innerHTML = `Model Result: <bold>${data.prediction}</bold>`
     document.getElementById('alert-result').classList.toggle("hide-element")
     // document.getElementById('alert-result').classList.toggle("show-element")
   }
