@@ -14,20 +14,9 @@
   <body>
 
 
-
-
-
     <div class="mb-4 bg-light rounded-3">
         <div class="container py-5">
-          {% if prediction %}
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            Churn: <strong>{{prediction}}</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-          {% endif %}
-
             <h3>Telecommunication Churn Analysis and prediction</h3>
-
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Visualization (Graphs)</button>
@@ -45,7 +34,7 @@
                         <img id="image-size" src="https://github.com/caesarorz/telcochurn/blob/main/data/images/churn1.png?raw=true" class="card-img-top img-fluid" alt="...">
                       </div>
                       <div class="card-body">
-                        <p class="card-text">The graph demostrates how the data has customers that churn or not. The dataset is imbalanced, however is not critical. 
+                        <p class="card-text">Customers that churn or not. The dataset is imbalanced, however is not critical. 
                           <code><pre>sns.countplot(data=df, x='Churn');</pre></code> 
                         </p>
                       </div>
@@ -57,8 +46,8 @@
                         <img id="image-size" src="https://github.com/caesarorz/telcochurn/blob/main/data/images/internetservice3.png?raw=true" class="card-img-top img-fluid" alt="...">
                       </div>
                       <div class="card-body">
-                        <p class="card-text">The graph demostrates how the data has customers that churn or not. The dataset is imbalanced, however is not critical. 
-                          <code><pre>sns.countplot(data=df, x='Churn');</pre></code> 
+                        <p class="card-text">Churn is most common with customers with fiber optic internet service.
+                          <code><pre>sns.countplot(data=df, x='InternetService', hue='Churn');</pre></code> 
                         </p>
                       </div>
                     </div>
@@ -69,8 +58,8 @@
                         <img id="image-size" src="https://github.com/caesarorz/telcochurn/blob/main/data/images/tenure_cohort5.png?raw=true" class="card-img-top img-fluid" alt="...">
                       </div>
                       <div class="card-body">
-                        <p class="card-text">The graph demostrates how the data has customers that churn or not. The dataset is imbalanced, however is not critical. 
-                          <code><pre>sns.countplot(data=df, x='Churn');</pre></code> 
+                        <p class="card-text">In regards to tenure (in months), customers leave the company the first 12 months. 
+                          <code><pre>sns.countplot(data=df, x='Tenure Cohort', hue='Churn');</pre></code> 
                         </p>
                       </div>
                     </div>
@@ -81,41 +70,49 @@
                         <img id="image-size" src="https://github.com/caesarorz/telcochurn/blob/main/data/images/contract4.png?raw=true" style="max-width: 80%;" class="card-img-top img-fluid" alt="...">
                       </div>
                       <div class="card-body">
-                        <p class="card-text">The graph demostrates how the data has customers that churn or not. The dataset is imbalanced, however is not critical. 
-                          <code><pre>sns.countplot(data=df, x='Churn');</pre></code> 
+                        <p class="card-text">Customers churn more frequently in a month-to-month contract. 
+                          <code><pre>sns.countplot(data=df, x='Contract', hue='Churn');</pre></code> 
                         </p>
                       </div>
                     </div>
                   </div>
-                </div>
 
-
-
-                <div class="card mb-3" style="margin-top: 30px;">
-                  <div class="row g-0">
-                    <div class="col-md-8">
-                      <img src="https://github.com/caesarorz/telcochurn/blob/main/data/images/contract_tenure6.png?raw=true" class="card-img-top" alt="...">
-                    </div>
-                    <div class="col-md-4">
+                  <div class="col">
+                    <div class="card">
+                      <div id="center-content">
+                        <img id="image-size-" src="https://github.com/caesarorz/telcochurn/blob/main/data/images/contract_tenure6.png?raw=true" style="max-width: 100%;" class="card-img-top img-fluid" alt="...">
+                      </div>
                       <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><code><pre>sns.countplot(data=df, x='Churn');</pre></code></p>
+                        <p class="card-text">Customers churn more frequently in a month-to-month contract. 
+                         <code><pre>
+                          sns.catplot(
+                            data=df, 
+                            x='Tenure Cohort', 
+                            hue='Churn', 
+                            kind='count', 
+                            col='Contract');
+                          </pre></code>
+                        </p>
                       </div>
                     </div>
                   </div>
-                </div>
-
-                <div class="card mb-3">
-                  <div class="row g-0">
-                    <div class="col-md-8">
-                      <img src="https://github.com/caesarorz/telcochurn/blob/main/data/images/yes_churn_features_importance2.png?raw=true" class="card-img-top" alt="...">
-                    </div>
-                    <div class="col-md-4">
+                  <div class="col">
+                    <div class="card">
+                      <div id="center-content">
+                        <img id="image-size-" src="https://github.com/caesarorz/telcochurn/blob/main/data/images/yes_churn_features_importance2.png?raw=true" style="max-width: 80%;" class="card-img-top img-fluid" alt="...">
+                      </div>
                       <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><code><pre>sns.countplot(data=df, x='Churn');</pre></code></p>
+                        <p class="card-text">Customers churn more frequently in a month-to-month contract. 
+                          <code><pre>
+                            plt.figure(figsize=(12,4))
+                            sns.barplot(
+                              x=corr.Churn_Yes.sort_values(ascending=False).iloc[1:-1].index,
+                              y=corr.Churn_Yes.sort_values(ascending=False).iloc[1:-1].values
+                            )
+                            plt.title('Positive Churn (Churn Yes) correlation values')
+                            plt.xticks(rotation=90);
+                          </pre></code>
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -124,9 +121,9 @@
 
               <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 
-                <p>Fill out the form with the information required to predict if your customer leaves or not</p>
+                <p>Fill out the form with the information required to predict if your customer leaves or not. The resulting prediction will appear at the end of the form with the specified values.</p>
 
-                <form class="row g-3 needs-validation" method="post" action="" novalidate id="churn_form">
+                <form class="row g-3 needs-validation" method="post" action="{{ url_for('predict') }}" novalidate id="churn_form">
                   <div class="col-md-3">
                     <label for="validationCustom04" class="form-label">Senior Citizen</label>
                     <select name="SeniorCitizen" class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom04" required>
@@ -329,9 +326,24 @@
                   </div>
                 </form>
 
+                <hr>
 
+
+                <div class="alert alert-warning alert-dismissible hide-element" id="alert-result" role="alert">
+                  <h3>Prediction Results</h3><button type="button" class="btn btn-primary btn-sm btn-close"></button>
+                  <p id="prediction-result"></p>
+                  <table class="table table-prediction">
+                    <thead>
+                      <tr>
+                        <th scope="col">Fields</th>
+                        <th scope="col">Values</th>
+                      </tr>
+                    </thead>
+                    <tbody class="fill-data">
+                    </tbody>
+                  </table>
+                </div>
               </div>
-
               <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                 <div class="card mb-3" style="margin-top: 30px;">
                   <div class="row g-0">
@@ -360,11 +372,8 @@
                     </div>
                     <div class="col-md-4">
                       <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><code><pre>
-
-                        </pre></code></p>
+                        <h5 class="card-title">Model: CatBoostClassifier</h5>
+                        <p class="card-text">The code snippet shows the hyperparameters used along with the training (fit the model) and the prediction.</p>
                       </div>
                     </div>
                   </div>
@@ -373,24 +382,50 @@
                 <div class="card mb-3">
                   <div class="row g-0">
                     <div class="col-md-8">
-                      <img src="https://github.com/caesarorz/telcochurn/blob/main/data/images/model_features7.png?raw=true" class="card-img-top" alt="...">
+                      <code><pre>
+                        ***************************** Training ************
+                        Accuracy:		 0.8056169138529504
+                        Classification Report:
+                                       precision    recall  f1-score   support
+                        
+                                  No       0.84      0.91      0.87      4663
+                                 Yes       0.67      0.51      0.58      1675
+                        
+                            accuracy                           0.81      6338
+                           macro avg       0.76      0.71      0.73      6338
+                        weighted avg       0.80      0.81      0.80      6338
+                        
+                        Confusion Matrix:
+                         [[4245  418]
+                         [ 814  861]]
+                        ******Cross Validation Number: 5
+                        Avg accuracy: 0.8024599204758502
+                        Accuracy standard dev: 0.006855076830377267
+                        
+                        ***************************** Testing *************
+                        Accuracy:		 0.8198581560283688
+                        Classification Report:
+                                       precision    recall  f1-score   support
+                        
+                                  No       0.85      0.91      0.88       511
+                                 Yes       0.71      0.58      0.64       194
+                        
+                            accuracy                           0.82       705
+                           macro avg       0.78      0.74      0.76       705
+                        weighted avg       0.81      0.82      0.81       705
+                        
+                        Confusion Matrix:
+                         [[466  45]
+                         [ 82 112]]
+                      </pre></code>
+
                     </div>
                     <div class="col-md-4">
                       <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><code><pre>
-
-                          feature_imp = pd.DataFrame(
-                              data=cat_model.get_feature_importance(), 
-                              index=cat_model.feature_names_, 
-                              columns=['Features Impr']).sort_values(by='Features Impr', ascending=False)
-                              
-                          plt.figure(figsize=(8,4))
-                          sns.barplot(data=feature_imp, x=feature_imp.index, y='Features Impr');
-                          plt.xticks(rotation=90);
-
-                        </pre></code></p>
+                        <h5 class="card-title">Model evaluation</h5>
+                        <p class="card-text">Althought CatBoostClassifier brought the best score compared with other models, recall is not very good, with 0.58. 
+                          One hypothesis is to filter customers for period (Contract or Tenure) to improve performance. This is a work in progress to improve the results. Later, XGBoost will be tested.
+                        </p>
                       </div>
                     </div>
                   </div>
