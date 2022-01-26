@@ -35,8 +35,9 @@
                       </div>
                       <div class="card-body">
                         <p class="card-text">Customers that churn or not. The dataset is imbalanced, however is not critical. 
-                          <code><pre>sns.countplot(data=df, x='Churn');</pre></code> 
+                          
                         </p>
+                        <code><pre id="pre-code">sns.countplot(data=df, x='Churn');</pre></code> 
                       </div>
                     </div>
                   </div>
@@ -47,8 +48,9 @@
                       </div>
                       <div class="card-body">
                         <p class="card-text">Churn is most common with customers with fiber optic internet service.
-                          <code><pre>sns.countplot(data=df, x='InternetService', hue='Churn');</pre></code> 
+                          
                         </p>
+                        <code><pre id="pre-code">sns.countplot(data=df, x='InternetService', hue='Churn');</pre></code> 
                       </div>
                     </div>
                   </div>
@@ -59,8 +61,8 @@
                       </div>
                       <div class="card-body">
                         <p class="card-text">In regards to tenure (in months), customers leave the company the first 12 months. 
-                          <code><pre>sns.countplot(data=df, x='Tenure Cohort', hue='Churn');</pre></code> 
                         </p>
+                        <code><pre id="pre-code">sns.countplot(data=df, x='Tenure Cohort', hue='Churn');</pre></code> 
                       </div>
                     </div>
                   </div>
@@ -71,8 +73,8 @@
                       </div>
                       <div class="card-body">
                         <p class="card-text">Customers churn more frequently in a month-to-month contract. 
-                          <code><pre>sns.countplot(data=df, x='Contract', hue='Churn');</pre></code> 
                         </p>
+                        <code><pre id="pre-code">sns.countplot(data=df, x='Contract', hue='Churn');</pre></code>
                       </div>
                     </div>
                   </div>
@@ -83,8 +85,8 @@
                         <img id="image-size-" src="https://github.com/caesarorz/telcochurn/blob/main/data/images/contract_tenure6.png?raw=true" style="max-width: 100%;" class="card-img-top img-fluid" alt="...">
                       </div>
                       <div class="card-body">
-                        <p class="card-text">Customers churn more frequently in a month-to-month contract. 
-                         <code><pre>
+                        <p class="card-text">Customers churn more frequently in a month-to-month contract.  </p>
+                        <code><pre id="pre-code">
                           sns.catplot(
                             data=df, 
                             x='Tenure Cohort', 
@@ -92,7 +94,6 @@
                             kind='count', 
                             col='Contract');
                           </pre></code>
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -102,8 +103,8 @@
                         <img id="image-size-" src="https://github.com/caesarorz/telcochurn/blob/main/data/images/yes_churn_features_importance2.png?raw=true" style="max-width: 80%;" class="card-img-top img-fluid" alt="...">
                       </div>
                       <div class="card-body">
-                        <p class="card-text">Customers churn more frequently in a month-to-month contract. 
-                          <code><pre>
+                        <p class="card-text">Customers churn more frequently in a month-to-month contract. </p>
+                          <code><pre id="pre-code">
                             plt.figure(figsize=(12,4))
                             sns.barplot(
                               x=corr.Churn_Yes.sort_values(ascending=False).iloc[1:-1].index,
@@ -112,7 +113,7 @@
                             plt.title('Positive Churn (Churn Yes) correlation values')
                             plt.xticks(rotation=90);
                           </pre></code>
-                        </p>
+                        
                       </div>
                     </div>
                   </div>
@@ -331,7 +332,7 @@
 
                 <div class="alert alert-warning alert-dismissible hide-element" id="alert-result" role="alert">
                   <h3>Prediction Results</h3><button type="button" class="btn btn-primary btn-sm btn-close"></button>
-                  <p id="prediction-result"></p>
+                  <p id="prediction-result" class="text-danger"></p>
                   <table class="table table-prediction">
                     <thead>
                       <tr>
@@ -350,8 +351,8 @@
                     <div class="col-md-8">
                       
 
-                      <p class="card-text">
-                        <code><pre id=""> 
+                      
+                        <code><pre id="pre-code"> 
                         # best params for results above
 
                         params = {'border_count': 5,
@@ -367,7 +368,7 @@
                         cat_model.fit(X_train, y_train)
 
                         y_pred = cat_model.predict(X_test)
-                      </pre></code></p>
+                      </pre></code>
 
                     </div>
                     <div class="col-md-4">
@@ -382,7 +383,7 @@
                 <div class="card mb-3">
                   <div class="row g-0">
                     <div class="col-md-8">
-                      <code><pre>
+                      <code><pre id="pre-code">
                         ***************************** Training ************
                         Accuracy:		 0.8056169138529504
                         Classification Report:

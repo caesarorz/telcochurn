@@ -20,32 +20,34 @@
 //   })()
 
 
-  var slider3 = document.getElementById("customRange3");
-  var output3 = document.getElementById("customRange3Value");
-  output3.innerHTML = slider3.value;
+var slider3 = document.getElementById("customRange3");
+var output3 = document.getElementById("customRange3Value");
+output3.innerHTML = slider3.value;
   
-  slider3.oninput = function() {
-    output3.innerHTML = this.value;
-  }
+slider3.oninput = function() {
+  output3.innerHTML = this.value;
+}
 
-  var slider4 = document.getElementById("customRange4");
-  var output4 = document.getElementById("customRange4Value");
-  output4.innerHTML = slider4.value;
+var slider4 = document.getElementById("customRange4");
+var output4 = document.getElementById("customRange4Value");
+output4.innerHTML = slider4.value;
   
-  slider4.oninput = function() {
-    output4.innerHTML = this.value;
-  }
+slider4.oninput = function() {
+  output4.innerHTML = this.value;
+}
 
-  var slider5 = document.getElementById("customRange5");
-  var output5 = document.getElementById("customRange5Value");
-  output5.innerHTML = slider5.value;
+var slider5 = document.getElementById("customRange5");
+var output5 = document.getElementById("customRange5Value");
+output5.innerHTML = slider5.value;
   
-  slider5.oninput = function() {
+slider5.oninput = function() {
     output5.innerHTML = this.value;
-  }
+}
+
 
 document.querySelector('.btn-close').addEventListener('click', (e) => {
   document.getElementById('alert-result').classList.toggle('hide-element')
+  cleanTable()
 })
 
 
@@ -58,10 +60,12 @@ const formatValuesTable = (value) => {
   return new_value
 }
 
-const rendertablePrediction = (data) => {
-  table_body = document.querySelector(".fill-data")
-  data = JSON.parse(data)
-  for (const [key, value] of Object.entries(data)) {
+const cleanTable = () => {
+  document.querySelector(".fill-data").innerHTML = "";
+}
+
+const fillTable = (table, data) => {
+    for (const [key, value] of Object.entries(data)) {
       var tr = document.createElement('tr');   
       var td1 = document.createElement('td');
       var td2 = document.createElement('td');
@@ -71,15 +75,23 @@ const rendertablePrediction = (data) => {
       td2.appendChild(text2);
       tr.appendChild(td1);
       tr.appendChild(td2);
-      table_body.appendChild(tr);
+      table.appendChild(tr);
   }
 }
+
+
+const rendertablePrediction = (data) => {
+  table_body = document.querySelector(".fill-data")
+  cleanTable()
+  data = JSON.parse(data)
+  fillTable(table_body, data)
+}
+
 
 const renderResult = (data) => {
   if (data.prediction === 'No' || data.prediction === 'Yes'){
     document.getElementById("prediction-result").innerHTML = `Model Result: <bold>${data.prediction}</bold>`
     document.getElementById('alert-result').classList.toggle("hide-element")
-    // document.getElementById('alert-result').classList.toggle("show-element")
   }
   else {
     document.getElementById("prediction-result").innerHTML = `Error in prediction, we are working to fix the issue.`
